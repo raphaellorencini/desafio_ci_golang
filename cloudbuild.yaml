@@ -1,20 +1,21 @@
 substitutions:
     _MY_GOLANG_VERSION: 1.0
-  steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    args:
-    - 'build'
-    - '--build-arg'
-    - 'GOLANG_VERSION=${_MY_GOLANG_VERSION}'
-    - '-t'
-    - 'gcr.io/$PROJECT_ID/my_golang:latest'
-    - '-t'
-    - 'gcr.io/$PROJECT_ID/my_golang:${_MY_GOLANG_VERSION}'
-    - '.'
-  - name: 'gcr.io/$PROJECT_ID/my_golang'
-    args: ['version']
-  
-  images:
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '--build-arg'
+  - 'GOLANG_VERSION=${_MY_GOLANG_VERSION}'
+  - '-t'
   - 'gcr.io/$PROJECT_ID/my_golang:latest'
+  - '-t'
   - 'gcr.io/$PROJECT_ID/my_golang:${_MY_GOLANG_VERSION}'
-  tags: ['cloud-builders-community']
+  - '.'
+
+- name: 'gcr.io/$PROJECT_ID/my_golang'
+  args: ['version']
+
+images:
+- 'gcr.io/$PROJECT_ID/my_golang:latest'
+- 'gcr.io/$PROJECT_ID/my_golang:${_MY_GOLANG_VERSION}'
+tags: ['cloud-builders-community']
