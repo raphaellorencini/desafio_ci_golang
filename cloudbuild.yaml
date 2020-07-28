@@ -9,10 +9,11 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['run', '-t', '--name', 'my_golang', 'gcr.io/$PROJECT_ID/my_golang:latest', 'go', 'test']
 
-- id: "Push da Imagem"
-  name: 'gcr.io/$PROJECT_ID/my_golang'
+
+#  name: 'gcr.io/$PROJECT_ID/my_golang'
 #  args: ['version']
 
+- id: "Push da Imagem"
 images:
 - 'gcr.io/$PROJECT_ID/my_golang:latest'
 - 'gcr.io/$PROJECT_ID/my_golang:${_MY_GOLANG_VERSION}'
