@@ -7,7 +7,7 @@ steps:
 
 - id: "Rodando o teste da função soma"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['run', '-d', '--name', 'my_golang', 'gcr.io/$PROJECT_ID/my_golang:latest', 'go', 'test']
+  args: ['run', '-t', '--name', 'my_golang', 'gcr.io/$PROJECT_ID/my_golang:latest', 'go', 'test']
 
 # - id: "Push da Imagem"
 #   name: 'gcr.io/$PROJECT_ID/my_golang'
