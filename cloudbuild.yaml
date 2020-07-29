@@ -13,4 +13,4 @@ steps:
 images:
 - 'gcr.io/$PROJECT_ID/my_golang:latest'
 - 'gcr.io/$PROJECT_ID/my_golang:${_MY_GOLANG_VERSION}'
-tags: ['cloud-builders-community']
+tags: ['cloud-builders-desafio-ci-golang']
